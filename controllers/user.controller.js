@@ -33,11 +33,11 @@ module.exports.updateUser = async (req, res) => {
       { new: true, upsert: true, setDefaultsOnInsert: true },
       (err, docs) => {
         if (!err) return res.send(docs);
-        if (err) return res.status(500).send({ message: err });
+        if (err) return console.log(err), res.status(500).send({ message: err });
       }
     );
   } catch (err) {
-    return res.status(500).json({ message: err });
+    return console.log(err), res.status(500).json({ message: err });
   }
 };
 

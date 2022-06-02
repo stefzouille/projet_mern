@@ -1,10 +1,6 @@
 require('dotenv').config({ path: '../.env' });
 
-// importer express
-const express = require('express');
 
-// creerla const pour appelé la methode express pour creer une application express
-const app = express();
 
 const mongoose = require('mongoose');
 

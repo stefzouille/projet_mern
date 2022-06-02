@@ -30,7 +30,8 @@ const userSchema = new mongoose.Schema(
       type: String, // c est le chemin de l image qui sera stocké dans la base de donnée
       default: "./uploads/profil/random-user.png"
     },
-    bio: {                 //  ne s affiche dans la base de donnée que si on a remplie une bio
+    //  ne s affiche dans la base de donnée que si on a remplie une bio
+    bio: {
       type: String,
       max: 1024,
     },
