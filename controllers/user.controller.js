@@ -1,13 +1,15 @@
+//on apelle la base de donnée
 const UserModel = require("../models/user.model");
+// controller que les id soit reconnus par la base de donnée
 const ObjectID = require("mongoose").Types.ObjectId;
 
 module.exports.getAllUsers = async (req, res) => {
-  const users = await UserModel.find().select("-password");
+  const users = await UserModel.find().select("-password"); // demande au server de ne pas renvoyer le mot de passe ds la réponse
   res.status(200).json(users);
 };
 
 module.exports.userInfo = (req, res) => {
-  if (!ObjectID.isValid(req.params.id))
+  if (!ObjectID.isValid(req.params.id)) // params info que l on recupere de ce qui est passé dans l url
     return res.status(400).send("ID unknown : " + req.params.id);
 
   UserModel.findById(req.params.id, (err, docs) => {
