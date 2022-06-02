@@ -10,7 +10,8 @@ const mongoose = require('mongoose');
 
 // console.log(process.env.NAMEMGSE);
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER_PASS}@cluster0.e9dod.mongodb.net/mern-project`,
+// mongoose.connect(`mongodb+srv://${process.env.DB_USER_PASS}@cluster0.e9dod.mongodb.net/mern-project`,
+mongoose.connect(`mongodb+srv://${process.env.DB_USER_PASS}@cluster0.9ylgaxd.mongodb.net/?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
