@@ -31,15 +31,23 @@ module.exports.updateUser = async (req, res) => {
         },
       },
       { new: true, upsert: true, setDefaultsOnInsert: true },
-      (err, docs) => {
-        if (!err) return res.send(docs);
-        if (err) return console.log(err), res.status(500).send({ message: err });
-      }
-    );
+      //       (err, docs) => {
+      //         if (!err) return res.send(docs);
+      //         if (err) return console.log(err), res.status(500).send({ message: err });
+      //       }
+      //     );
+      //   } catch (err) {
+      //     return console.log(err), res.status(500).json({ message: err });
+      //   }
+      // };
+    )
+      .then((docs) => res.send(docs))
+      .catch((err) => res.status(500).send({ message: err }));
   } catch (err) {
-    return console.log(err), res.status(500).json({ message: err });
+    res.status(500).json({ message: err });
   }
 };
+
 
 module.exports.deleteUser = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
