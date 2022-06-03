@@ -31,6 +31,7 @@ module.exports.updateUser = async (req, res) => {
         },
       },
       { new: true, upsert: true, setDefaultsOnInsert: true },
+      // --------la callback ne marche pas avec moongoose utiliser un then pour resoudre le souci sinon nodemon crash ----------------
       //       (err, docs) => {
       //         if (!err) return res.send(docs);
       //         if (err) return console.log(err), res.status(500).send({ message: err });
