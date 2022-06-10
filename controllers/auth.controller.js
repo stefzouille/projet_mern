@@ -9,6 +9,7 @@ const createToken = (id) => {
     expiresIn: maxAge
   })
 };
+console.log(process.env.TOKEN_SECRET);
 
 module.exports.signUp = async (req, res) => {
   console.log(req.body);
@@ -24,6 +25,8 @@ module.exports.signUp = async (req, res) => {
     res.status(200).send({ errors })
   }
 }
+
+
 
 module.exports.signIn = async (req, res) => {
   const { email, password } = req.body
